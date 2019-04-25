@@ -28,7 +28,7 @@ public class 수강신청Quiz1 {
 				System.out.print("안녕히가세요.");
 					break;
 			}
-			 if(sub[end]>=5) {//좌석에 벗어나는 위치를 체크하는 조건문 하나 더 들어가야 함.
+			else if(sub.length<end) {//좌석에 벗어나는 위치를 체크하는 조건문 하나 더 들어가야 함.
 				System.out.println("좌석에 벗어나는 값입니다 ");
 			}else if(sub[end-1]==0) { //입력한 자리가 0번일 때, 수강신청
 					System.out.println("수강신청 되었습니다");

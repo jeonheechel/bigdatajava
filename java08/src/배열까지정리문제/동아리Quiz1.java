@@ -17,7 +17,7 @@ public class 동아리Quiz1 {
 		System.out.println("동아리 명단의 이번학기 성적입니다");
 		System.out.println();
 		System.out.println("이름          학년        학점");
-		String[] names= {"김아무개","박아무개","송아무개","정마무개","장아무개"}; 
+		String[] names= {"김아무개","박아무개","송아무개","정아무개","장아무개"}; 
 		char[] grade= {65,66,67,65,66};
 		int[] level= {1,2,3,1,1};
 		
@@ -64,37 +64,37 @@ public class 동아리Quiz1 {
 		}
 		
 		//위치를 찾아 출력
-		System.out.println("위치를 찾고 싶은 이름 입력>>");
+		System.out.print("위치를 찾고 싶은 이름 입력>>");
 		String names2 = sc.next();
 		
 		int idx = -1;
 		for (int i = 0; i < names.length; i++) {
 			if(names[i].equals(names2)) {
 				idx = i;
+				System.out.println(idx);
 			}
 		}
-		System.out.println(idx);
 		
 		
 		
 			
 		//위치를 찾아  모든정보 출력
-		System.out.println("정보를 찾고 싶은 이름 입력>>");
+		System.out.print("정보를 찾고 싶은 이름 입력>>");
 		String names3 = sc.next();
 		//int idxname = -1;
-		for (int j = 0; j < names.length; j++) {
-			if(names[j].equals(names3)) {
+		for (int i = 0; i < names.length; i++) {
+			if(names[i].equals(names3)) {
 				//아예 2번이 된거다
-				idx = j;
+				idx = i;
 				
 				
+				System.out.println(idx);
+				System.out.println("학년은?"+level[idx]);
+				System.out.println("성적은?"+grade[idx]);
 			}
 			
 			
 		}
-		System.out.println(idx);
-		System.out.println(level[idx]);
-		System.out.println(grade[idx]);
 		
 		
 		
