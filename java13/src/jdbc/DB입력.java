@@ -2,6 +2,8 @@ package jdbc;
 
 import java.util.Scanner;
 
+import jdbc.DB처리;
+
 public class DB입력 {
 
 	public static void main(String[] args) {
@@ -18,8 +20,13 @@ public class DB입력 {
 		String tel =sc.next();
 		
 		DB처리 db = new DB처리();
+		MemberDTO dto = new MemberDTO();
+		dto.setId(id);
+		dto.setPw(pw);
+		dto.setName(name);
+		dto.setTel(tel);
 		try {//에러처리;
-			db.insert(id, pw, name, tel);
+			db.insert(dto);
 		} catch (Exception e) {//잡는부분
 			System.out.println("에러발생!! 에러발생!!");
 			e.printStackTrace();
