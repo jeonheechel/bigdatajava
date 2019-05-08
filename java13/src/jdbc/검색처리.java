@@ -11,7 +11,7 @@ public class 검색처리 {
 		System.out.println("아이디 입력");
 		String id = sc.next();
 		
-		DB처리 db = new DB처리();
+		MemberDAO db = new MemberDAO();
 		//String id = JOptionPane.showInputDialog("아이디 입력");
 		
 			String[] mem = db.select(id);

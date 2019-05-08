@@ -38,7 +38,7 @@ public class UsersDAO {
 			 ps.setString(3, dto.getName());
 			 ps.setString(4, dto.getNicname());
 			 ps.setString(5, dto.getMail());
-			 ps.setString(6, dto.getGrade());
+			 ps.setInt(6, dto.getGrade());
 			 
 			System.out.println("3. SQL문 결정 OK....");
 			

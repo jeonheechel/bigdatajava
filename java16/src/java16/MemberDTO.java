@@ -1,4 +1,4 @@
-package jdbc;
+package java16;
 
 public class MemberDTO {
 	private String id;

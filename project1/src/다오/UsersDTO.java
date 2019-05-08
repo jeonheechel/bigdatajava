@@ -7,9 +7,9 @@ public class UsersDTO {
 	private String name;
 	private String nicname;
 	private String mail;
-	private String grade;
-	
-	
+	private int hint;
+	private String pwhint;
+	private int grade;
 	public String getId() {
 		return id;
 	}
@@ -40,12 +40,32 @@ public class UsersDTO {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public String getGrade() {
+	public int getHint() {
+		return hint;
+	}
+	public void setHint(int hint) {
+		this.hint = hint;
+	}
+	public String getPwhint() {
+		return pwhint;
+	}
+	public void setPwhint(String pwhint) {
+		this.pwhint = pwhint;
+	}
+	public int getGrade() {
 		return grade;
 	}
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 

@@ -2,7 +2,7 @@ package jdbc;
 
 import java.util.Scanner;
 
-import jdbc.DB처리;
+import jdbc.MemberDAO;
 
 public class DB입력 {
 
@@ -19,8 +19,8 @@ public class DB입력 {
 		System.out.println("연락처:");
 		String tel =sc.next();
 		
-		DB처리 db = new DB처리();
-		MemberDTO dto = new MemberDTO();
+		MemberDAO db = new MemberDAO();
+		MemberDTO dto = new MemberDTO(id, pw, name, tel);
 		dto.setId(id);
 		dto.setPw(pw);
 		dto.setName(name);
