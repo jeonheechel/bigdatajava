@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 
-public class ProjectDAOId {
+public class ProjectDAOPw {
 	String url = "jdbc:mysql://localhost:3306/movieworld";
 	String user = "root";
 	String password = "1234";
@@ -16,7 +16,7 @@ public class ProjectDAOId {
 	ResultSet rs;
 	UsersDTO  dto = null;//변수의 생존범위: 선언의 위치
 	
-public UsersDTO select(String name , String mail)  {//메서드 만드는중
+public UsersDTO select(String id , String name, int hint, String pwhint)  {//메서드 만드는중
 		
 		
 		//1. 드라이버 설정
@@ -29,10 +29,12 @@ public UsersDTO select(String name , String mail)  {//메서드 만드는중
 			System.out.println("2.DB 연결  ok.. ");
 			
 			//3. SQL문 결정(객체화)
-			String sql = "select * from users where name = ? AND mail=?";
+			String sql = "select * from users where id = ? AND name=? AND hint=? AND pwhint=?";
 			ps = con.prepareStatement(sql);
-			ps.setString(1, name );
-			ps.setString(2, mail );
+			ps.setString(1, id );
+			ps.setString(2, name );
+			ps.setInt(3, hint );
+			ps.setString(4, pwhint );
 			
 			System.out.println("3.SQL 문 객체화 ok.. ");
 			
@@ -45,11 +47,12 @@ public UsersDTO select(String name , String mail)  {//메서드 만드는중
 			
 			if(rs.next()) {
 				dto = new UsersDTO();
-				String id = rs.getString(1);
+				String pw = rs.getString(2);
+				
 				
 				//위에서 검색한 값을 순서대로 dto.에다가 넣어준다는 뜻이다
-				dto.setId(id);
-				System.out.print(id);
+				dto.setPw(pw);
+				System.out.print(pw);
 				
 						
 			}else {

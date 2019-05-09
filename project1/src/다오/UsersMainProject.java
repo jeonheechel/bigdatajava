@@ -25,20 +25,20 @@ public class UsersMainProject {
 	
 	public static void main(String[] args) throws Exception {
 		JFrame f = new JFrame();
-		f.setTitle("영화 프로그램 로그인창");
+		f.setTitle("Movie program login window");
 		f.setSize(800,800);
 		
-		JLabel label = new JLabel("영화 프로그램 로그인창");
+		JLabel label = new JLabel("Movie program login window");
 		label.setFont(new Font("굴림", Font.PLAIN, 75));
 		
-		JLabel label_1 = new JLabel("아이디");
+		JLabel label_1 = new JLabel("ID");
 		label_1.setFont(new Font("굴림", Font.PLAIN, 65));
 		
 		textField = new JTextField();
 		textField.setFont(new Font("굴림", Font.PLAIN, 80));
 		textField.setColumns(10);
 		
-		JLabel label_2 = new JLabel("비밀번호");
+		JLabel label_2 = new JLabel("Password");
 		label_2.setFont(new Font("굴림", Font.PLAIN, 65));
 		
 		textField_1 = new JTextField();
@@ -51,7 +51,7 @@ public class UsersMainProject {
 		f.getContentPane().add(label_2);
 		f.getContentPane().add(textField_1);
 		
-		JButton btnNewButton = new JButton("회원가입");
+		JButton btnNewButton = new JButton("join membership");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				회원가입 SignUp = new 회원가입();
@@ -62,7 +62,7 @@ public class UsersMainProject {
 		btnNewButton.setFont(new Font("굴림", Font.PLAIN, 35));
 		f.getContentPane().add(btnNewButton);
 		
-		JButton button = new JButton("아이디 찾기");
+		JButton button = new JButton("Find ID");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				아이디찾기 Id = new 아이디찾기();
@@ -73,7 +73,7 @@ public class UsersMainProject {
 		button.setFont(new Font("굴림", Font.PLAIN, 35));
 		f.getContentPane().add(button);
 		
-		JButton button_1 = new JButton("비밀번호 찾기");
+		JButton button_1 = new JButton("Find Password");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				비밀번호찾기 Pw = new 비밀번호찾기();
@@ -84,7 +84,7 @@ public class UsersMainProject {
 		button_1.setFont(new Font("굴림", Font.PLAIN, 35));
 		f.getContentPane().add(button_1);
 		
-		JButton btnNewButton_1 = new JButton("종료");
+		JButton btnNewButton_1 = new JButton("Termination");
 		btnNewButton_1.setFont(new Font("굴림", Font.PLAIN, 65));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

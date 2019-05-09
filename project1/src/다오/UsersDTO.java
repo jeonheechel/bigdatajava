@@ -10,6 +10,9 @@ public class UsersDTO {
 	private int hint;
 	private String pwhint;
 	private int grade;
+	
+	
+	
 	public String getId() {
 		return id;
 	}
