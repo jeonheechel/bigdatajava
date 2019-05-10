@@ -14,6 +14,7 @@ import javax.swing.GroupLayout.Alignment;
 import java.awt.CardLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.DriverManager;
 import java.awt.event.ActionEvent;
 
 
@@ -22,6 +23,8 @@ import java.awt.event.ActionEvent;
 public class UsersMainProject {
 	private static JTextField textField;
 	private static JTextField textField_1;
+	static UsersDTO dto;
+	static ProjectDAOPw dao;
 	
 	public static void main(String[] args) throws Exception {
 		JFrame f = new JFrame();
@@ -66,6 +69,7 @@ public class UsersMainProject {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				아이디찾기 Id = new 아이디찾기();
+			
 				
 				
 			}

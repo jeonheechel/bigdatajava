@@ -19,6 +19,7 @@ public class 아이디찾기 {
 	private JTextField T2;
 	static UsersDTO dto;
 	static ProjectDAOId dao;
+
 	
 	
 	public 아이디찾기() {

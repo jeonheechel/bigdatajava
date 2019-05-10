@@ -81,6 +81,64 @@ public UsersDTO select(String id , String name, int hint, String pwhint)  {//메
 	}//select
 
 
+public UsersDTO insert(String Id , String Pw, String Name, String Nicname, String Mail , int Hint, String Pwhint , int Grade )  {//메서드 만드는중
+	
+	
+	//1. 드라이버 설정
+	try {
+		Class.forName("com.mysql.jdbc.Driver");
+		System.out.println("1.드라이버 설정 ok.. ");
+		
+		//2. DB연결
+		con = DriverManager.getConnection(url, user, password);
+		System.out.println("2.DB 연결  ok.. ");
+		
+		//3. SQL문 결정(객체화)
+		String sql = "insert into users values(?,?,?,?,?,?,?,?)";
+		ps = con.prepareStatement(sql);
+		ps.setString(1, Id );
+		ps.setString(2, Pw );
+		ps.setString(3, Name );
+		ps.setString(4, Nicname );
+		ps.setString(5, Mail );
+		ps.setInt(6, Hint);
+		ps.setString(7, Pwhint );
+		ps.setInt(8, Grade );
+		
+		System.out.println("3.SQL 문 객체화 ok.. ");
+		
+		
+		//4. SQl문을 전송
+		ps.executeUpdate();
+		System.out.println("4.SQL 문 전송 ok.. ");
+		
+		
+		
+		
+		
+		
+	} catch (Exception e) {
+		System.out.println("DB처리중 에러발생");
+		System.out.println(e.getMessage());
+		
+	} finally {
+		//에러 발생 여부와 상관없이 무조건 실행 시켜야하는 코드는 여기다 넣는다
+		 try {
+			rs.close();
+			ps.close();
+			con.close();
+		} catch (Exception e) {
+			//e.printStackTrace();안써도 그만이다
+			System.out.println("자원 해제중 에러발생!!");
+		}//catch
+		 
+	}//try-catch-finally
+	return dto;
+	
+					
+}//select
+
+
 
 
 }

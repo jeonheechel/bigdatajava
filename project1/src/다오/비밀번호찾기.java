@@ -21,7 +21,7 @@ public class 비밀번호찾기 {
 	private JTextField t4;
 	static UsersDTO dto;
 	static ProjectDAOPw dao;
-	String[] hint = {"0  Choose","My hometown is", "My first pet is", "My Treasure No. 1", "My parents' name is", "My first nickname is"};
+	String[] hint = {"0  Choose","1 My hometown is", "2 My first pet is", "3 My Treasure No. 1", "4 My parents' name is", "5 My first nickname is"};
 	JComboBox combo;
 	
 	public 비밀번호찾기() {
