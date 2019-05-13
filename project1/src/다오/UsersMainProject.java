@@ -32,7 +32,7 @@ public class UsersMainProject {
 		f.setSize(800,800);
 		
 		JLabel label = new JLabel("Movie program login window");
-		label.setFont(new Font("굴림", Font.PLAIN, 75));
+		label.setFont(new Font("굴림", Font.PLAIN, 54));
 		
 		JLabel label_1 = new JLabel("ID");
 		label_1.setFont(new Font("굴림", Font.PLAIN, 65));
@@ -97,6 +97,16 @@ public class UsersMainProject {
 			}
 		});
 		f.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Login");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				메인페이지 main = new 메인페이지();
+				
+			}
+		});
+		btnNewButton_2.setFont(new Font("굴림", Font.PLAIN, 65));
+		f.getContentPane().add(btnNewButton_2);
 		
 		
 		
