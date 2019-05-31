@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			//undefined : 값이 할당되지 않은 변수
+			//값이 지정되지 않았는데 출력
+			//null : 주소가 들어가 있지 않음(객체) => 참조형
+			//NaN : 값이 들어가 있지 않음(number,숫자) => 기본형
+			var name ;
+			name = prompt();
+			var age ;
+			age = prompt();
+			age = parseInt(age);
+			
+			console.log(name);
+			console.log(age);
+            if(typeof name == "undefined" || name == null || name ==""){
+            	console.log("name 안에 내용이 비어있습니다");
+			}
+            if(typeof age == "undefined" || age == NaN || age ==0){
+            	console.log("age 안에 내용이 비어있습니다");
+			}
+			
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

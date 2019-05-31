@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		function check() {
+		var data1 = document.querySelector("#id");
+		var data2 = document.querySelector("#pw");
+		
+		var data3 = data1.value
+		var data4 = data2.value
+		
+		location.href="quiz2.jsp?title="+data3+"&content="+data4;
+		}
+		</script>
+	</head>
+	<body>
+	<h1>게시판 내용 전송</h1>
+		제목:<input type="text" name="title" id="id"><br>
+		내용:<input type="text" name="content" id="pw"><br>
+		<button type="button" onClick="check()">내용전송</button>
+	</body>
+</html>

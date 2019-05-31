@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		   	/*function call(){
+		   		alert("나는 call함수")
+		   	}
+		   	function call2(){
+		   		alert("나는 call2함수")
+		   	}
+		   	function call3(msg){
+		   		alert("내가 전달받은 메세지는 " + msg)
+		   	}
+		   	function call4(subject,price){
+		   		alert(subject+"과목 가격은 " + price+"만원")
+		   	}
+		   	
+		    	call();
+		   	call2(); 
+		    	input = prompt("메세지를 입력하세요")
+		   	call3(input); 
+		   	input1 = prompt("과목입력")
+		   	input2 = parseInt(prompt("가격입력"))
+		   	call4(input1,input2);*/
+		   	
+		   	/*프로그램이 시작하면 환영하니다 함수정의 -> 호출 
+		   	입력값 커피총가격,인원수-> 인원당 얼마를 낼지 출력*/
+			function start(){
+		   		alert("환영합니다")
+		   	}
+		
+		   	start();
+		   	
+		   	function call(total,count){//1차로 지불 금액 계산
+		   		var price = total/count;
+		   		call2(price);/*함수내에서 다른 함수 호출가능*/
+		   		console.log(parseInt(price));
+		   	 
+		   	}
+		   	call();
+		   	function call2(rep){//최종지불금액 계산함수
+		   		if(rep >= 3000)
+		   			alert("당신이 지불할금액은" +(rep-300))
+		   		console.log(rep);
+		   	}
+		  var rePrice = call(10000,3);
+		 /*call2(parseInt(rePrice));*/
+		  
+			
+			
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		function check() {
+			var data = document.querySelector("#id");//최근에는 이런 방식으로 쓴다
+			var data3 = document.querySelector("#pw");//최근에는 이런 방식으로 쓴다
+			var data4 = document.querySelector("#name");//최근에는 이런 방식으로 쓴다
+			var data5 = document.querySelector("#tel");//최근에는 이런 방식으로 쓴다
+			
+			var data2 = data.value//입력값 추출
+			var data6 = data3.value//입력값 추출
+			var data7 = data4.value//입력값 추출
+			var data8 = data5.value//입력값 추출
+			
+			if(data2.length >= 5 ){
+				location.href="js.jsp?id="+data2+"&pw="+data6+"&name="+data7+"&tel="+data8;//아직 안만듬
+				alert("5글자 이상의 적합한 id 입니다")
+			}else{
+				location.href="js12.html";
+				alert("5글자 이하 입니다 다시입력하세요")
+			}
+			
+		}
+		</script>
+	</head>
+	<body>
+			<h1>회원가입</h1>
+			아이디:<input type="text" name="id" id="id"><br>
+			패스워드:<input type="text" name="pw" id="pw"><br>
+			이름:<input type="text" name="name" id="name"><br>
+			전화번호:<input type="text" name="tel" id="tel"><br>
+			<button type="button" onClick="check()">회원가입</button>
+	
+	</body>
+</html>
