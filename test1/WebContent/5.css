@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+
+#total{
+   color: blue;   
+   
+   width:1000px;
+   height: 100px;
+   font-size: 20px; 
+}
+#top{
+   width: 1000px;
+   padding-left: 120px;
+   height: 80px;
+   background: lime;
+}
+#top li{
+	
+   list-style: none;
+   float: left;
+   width: 150px;
+   height: 80px;
+   padding-left: 10px;
+   padding-top: 10px;
+   display: table-cell;
+   vertical-align: middle; 
+}
+#top li:nth-child(2n+1) {
+   background: red;
+   box-shadow: 10px 10px gray;
+}
+#top li:nth-child(2n) {
+   background: orange;
+   box-shadow: 10px 10px gray;
+}
+#top li:first-child {
+   border-radius: 20px 0 0 20px;
+}
+#top li:last-child {
+   border-radius: 0 20px 20px 0;
+}
+#h1{
+	font-size: 50px;
+	color: blue;
+	background: yellow;
+	
+}
+#content{
+	background-image: url("1.png");
+}
+#body{
+	background: yellow;
+}
+
+tr{
+   width: 700px;
+   height: 110px;
+   color: blue;
+}
+#t0{
+	width: 400px;
+}
+.t1{
+	size: 50px;
+   font-size: 20px;
+   color: blue;
+   width: 100px;
+   text-align: center;
+}
+.t1:hover{
+   font-size: 20px;
+   color: blue;
+   background: lime;
+   font-weight: bold;
+}
+.t2{
+	
+	size: 50;
+   font-size: 20px;
+   width: 500px;
+   height: 100px;
+}
+.t3{
+	width:100px;
+	height:100px;
+	
+	font-size: 20px;
+   text-align: center;
+}
+#a1{
+	background: yellow;
+	color: blue;
+	font-size: 20px;
+	
+}
+#top2{
+	top:300px;
+	left:1100px;
+	position: fixed;
+	width: 300px;
+	height: 200px;
+	background: black;
+	font: 궁서; 
+	font-size:20px;
+	font-weight: bold;
+	color: yellow;
+	border-top: 5px solid  aqua;
+	border-bottom: 10px double white;
+	border-radius: 100px 10px;
+	box-shadow:10px 10px;
+}
