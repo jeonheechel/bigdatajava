@@ -5,13 +5,11 @@ public class MemberDTO {
 	private String pw;
 	private String tel;
 	private String addr;
-	private String tall;
-	private String kg;
+	private int tall;
+	private double kg;
 	private String sex;
-	private String age;
+	private int age;
 	private String email;
-	
-	
 	public String getId() {
 		return id;
 	}
@@ -36,16 +34,16 @@ public class MemberDTO {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	public String getTall() {
+	public int getTall() {
 		return tall;
 	}
-	public void setTall(String tall) {
+	public void setTall(int tall) {
 		this.tall = tall;
 	}
-	public String getKg() {
+	public double getKg() {
 		return kg;
 	}
-	public void setKg(String kg) {
+	public void setKg(double kg) {
 		this.kg = kg;
 	}
 	public String getSex() {
@@ -54,10 +52,10 @@ public class MemberDTO {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	public String getEmail() {
@@ -66,6 +64,9 @@ public class MemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
+	
 	
 	
 	

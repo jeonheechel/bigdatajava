@@ -26,10 +26,10 @@ public class MemberDAO {
 		ps.setString(2,dto.getPw());
 		ps.setString(3,dto.getTel());
 		ps.setString(4,dto.getAddr());
-		ps.setString(5,dto.getTall());
-		ps.setString(6,dto.getKg());
+		ps.setInt(5,dto.getTall());
+		ps.setDouble(6,dto.getKg());
 		ps.setString(7,dto.getSex());
-		ps.setString(8,dto.getAge());
+		ps.setInt(8,dto.getAge());
 		ps.setString(9,dto.getEmail());
 		ps.executeUpdate();
 }
