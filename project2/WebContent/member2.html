@@ -1,33 +1,33 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-		<link rel="stylesheet" type="text/css" href="member.css">
+		 <link rel="stylesheet" type="text/css" href="member.css">
 	</head>
 	<body>
-	<h1>회원가입 화면입니다</h1>
+	<h1>회원정보수정 화면입니다</h1>
 		<hr color="red">
-			<form action="member.jsp"><!-- 클라이언트의  요청이다  -->
-			ID:<input type="text" name="id"><br>
+			<form action="member2.jsp"><!-- 클라이언트의  요청이다  -->
+			ID:<input type="text" name="id"  class="isg"  readonly ><br>
 			PW:<input type="text" name="pw"><br>
 			TEL:<input type="text" name="tel"><br>
 			ADDR:<input type="text" name="addr"><br>
 			TALL:<input type="text" name="tall"><br>
 			KG:<input type="text" name="kg"><br>
-			SEX:<input type="text" name="sex"><br>
-			AGE:<input type="text" name="age"><br>
+			SEX:<input type="text" name="sex" class="isg" readonly><br>
+			AGE:<input type="text" name="age" ><br>
 			EMAIL:<input type="text" name="email"><br>
-			Grade:<input type="text" name="grade" class="isg" placeholder="0" value="0" readonly><br>
+			Grade:<input type="text" name="grade" class="isg" readonly><br>
 			
 			
 			
 			<input type="submit" value="서버로 전송">
 			
 			
+			
 			</form>
-			
-			
 	
 	</body>
 </html>

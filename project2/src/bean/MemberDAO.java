@@ -3,25 +3,28 @@ package bean;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+
+
+import java.sql.*;
 
 public class MemberDAO {
-
-	//dao의 단계를 조금 효율적으로 변경
+	DBConnectionMgr mgr;
+	public MemberDAO() {
+		
+		mgr = DBConnectionMgr.getInstance();//한개밖에 못만든다
+	}
 	public void insert(MemberDTO dto) throws Exception {
 		
-		Class.forName("com.mysql.jdbc.Driver");
-		System.out.println("드라이버 설정 ok<br>");
-		String url = "jdbc:mysql://localhost:3306/member";
-		String user = "root";
-		String pwd = "1234";
+		//1.2단계를 해주는 DBconnectinMgr 객체 필요
+		Connection con = mgr.getConnection();
 		
-		Connection con = null;
-		PreparedStatement ps = null;
-		con = DriverManager.getConnection(url, user, pwd);
 		
-		String sql = "insert into user values(?,?,?,?,?,?,?,?,?)";
-		ps = con.prepareStatement(sql);
 		
+		//3단계 sql문 결정
+		String sql = "insert into user value(?,?,?,?,?,?,?,?,?,?)";
+		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1,dto.getId());
 		ps.setString(2,dto.getPw());
 		ps.setString(3,dto.getTel());
@@ -31,6 +34,101 @@ public class MemberDAO {
 		ps.setString(7,dto.getSex());
 		ps.setInt(8,dto.getAge());
 		ps.setString(9,dto.getEmail());
+		ps.setString(10,dto.getGrade());
+		
+		//4단계 sql문 전달요청
 		ps.executeUpdate();
-}
+	}
+	
+
+	public MemberDTO select(MemberDTO dto) throws Exception {
+		
+		//1.2단계를 해주는 DBconnectinMgr 객체 필요
+		Connection con = mgr.getConnection();
+		
+		
+		
+		//3단계 sql문 결정
+		String sql = "select* from user where id = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1,dto.getId());
+		
+		
+		//4단계 sql문 전달요청
+		ResultSet rs =  ps.executeQuery();
+		MemberDTO  dto2 = null;
+		while(rs.next()) {
+			dto2 = new MemberDTO();
+			String id = rs.getString(1);
+			String pw = rs.getString(2);
+			String tel = rs.getString(3);
+			String addr = rs.getString(4);
+			String tall = rs.getString(4);
+			String kg = rs.getString(4);
+			String sex = rs.getString(4);
+			String age = rs.getString(4);
+			String email = rs.getString(4);
+			String grade = rs.getString(4);
+			dto2.setId(id);
+			dto2.setPw(pw);
+			dto2.setTel(tel);
+			dto2.setAddr(addr);
+			dto2.setTall(Integer.parseInt(tall));
+			dto2.setKg(Double.parseDouble(kg));
+			dto2.setSex(sex);
+			dto2.setAge(Integer.parseInt(age));
+			dto2.setEmail(email);
+			dto2.setGrade(grade);
+			
+		}
+		return dto2;
+	}
+	
+	public void update(MemberDTO dto) throws Exception {
+		
+		//1.2단계를 해주는 DBconnectinMgr 객체 필요
+		Connection con = mgr.getConnection();
+		
+		
+		
+		//3단계 sql문 결정
+		String sql = "update user set  id= ?, pw= ?, tel= ?, addr= ?, tall= ?, kg= ?, sex= ?, age= ?, email= ?, grade= ?     where id= ? ";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1,dto.getId());
+		ps.setString(2,dto.getPw());
+		ps.setString(3,dto.getTel());
+		ps.setString(4,dto.getAddr());
+		ps.setInt(5,dto.getTall());
+		ps.setDouble(6,dto.getKg());
+		ps.setString(7,dto.getSex());
+		ps.setInt(8,dto.getAge());
+		ps.setString(9,dto.getEmail());
+		ps.setString(10,dto.getGrade());
+		
+		//4단계 sql문 전달요청
+		ps.executeUpdate();
+	}
+	
+public void delete(MemberDTO dto) throws Exception {
+		
+		//1.2단계를 해주는 DBconnectinMgr 객체 필요
+		Connection con = mgr.getConnection();
+		
+		
+		
+		//3단계 sql문 결정
+		String sql = "delete  from user where id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1,dto.getId());
+		
+		
+		//4단계 sql문 전달요청
+		ps.executeUpdate();
+	}
+		
+		
+		
+		
+	
+
 }

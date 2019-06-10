@@ -10,6 +10,7 @@ public class MemberDTO {
 	private String sex;
 	private int age;
 	private String email;
+	private String grade;
 	public String getId() {
 		return id;
 	}
@@ -64,6 +65,14 @@ public class MemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grage) {
+		this.grade = grage;
+	}
+	
+	
 	
 	
 	
