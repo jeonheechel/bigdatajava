@@ -2,7 +2,7 @@ package bean;
 
 public class StarDTO {
 	private String id;
-	private int num;
+	private int starnum;
 	private int top;
 	private int under;
 	private int shoes;
@@ -14,11 +14,11 @@ public class StarDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getNum() {
-		return num;
+	public int getStarnum() {
+		return starnum;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setStarnum(int starnum) {
+		this.starnum = starnum;
 	}
 	public int getTop() {
 		return top;
@@ -38,6 +38,13 @@ public class StarDTO {
 	public void setShoes(int shoes) {
 		this.shoes = shoes;
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

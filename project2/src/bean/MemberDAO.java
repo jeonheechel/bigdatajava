@@ -63,12 +63,12 @@ public class MemberDAO {
 			String pw = rs.getString(2);
 			String tel = rs.getString(3);
 			String addr = rs.getString(4);
-			String tall = rs.getString(4);
-			String kg = rs.getString(4);
-			String sex = rs.getString(4);
-			String age = rs.getString(4);
-			String email = rs.getString(4);
-			String grade = rs.getString(4);
+			String tall = rs.getString(5);
+			String kg = rs.getString(6);
+			String sex = rs.getString(7);
+			String age = rs.getString(8);
+			String email = rs.getString(9);
+			String grade = rs.getString(10);
 			dto2.setId(id);
 			dto2.setPw(pw);
 			dto2.setTel(tel);
@@ -104,6 +104,7 @@ public class MemberDAO {
 		ps.setInt(8,dto.getAge());
 		ps.setString(9,dto.getEmail());
 		ps.setString(10,dto.getGrade());
+		ps.setString(11,dto.getId());
 		
 		//4단계 sql문 전달요청
 		ps.executeUpdate();
