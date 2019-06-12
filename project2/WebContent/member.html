@@ -4,13 +4,33 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link rel="stylesheet" type="text/css" href="member.css">
+		<!--  <script type="text/javascript">
+			function idcheck(){
+			 var id = document.form.id.value;
+			 if(id.length<1 || id==null){
+			  alert("중복체크할 아이디를 입력하십시오");
+			  return false;
+			 }
+			 var url = "idCheck.jsp?id=" + id;
+			 window.open(url, "get", "height = 180, width = 300");
+			}
+		
+		</script>-->
 	</head>
 	<body>
 	<h1>회원가입 화면입니다</h1>
 		<hr color="red">
 			<form action="member.jsp"><!-- 클라이언트의  요청이다  -->
-			ID:<input type="text" name="id"><br>
+			ID : <input type="text" name="id"> &nbsp;&nbsp;&nbsp;
+   			 <!--   <input style="width: 100px; height: 20px" type="button" onclick="idcheck()"  value="중복체크"><br> -->
+   				
+			
+   			<!--  <button style="width: 100px; height: 20px"   type="submit" onclick="idcheck()" value="중복체크"  >중복체크</button><br>-->
+   			
+   			
+   			
 			PW:<input type="text" name="pw"><br>
+			PWCHECK:<input type="text" name="pw"><br>
 			TEL:<input type="text" name="tel"><br>
 			ADDR:<input type="text" name="addr"><br>
 			TALL:<input type="text" name="tall"><br>
@@ -18,7 +38,7 @@
 			SEX:<input type="text" name="sex"><br>
 			AGE:<input type="text" name="age"><br>
 			EMAIL:<input type="text" name="email"><br>
-			Grade:<input type="text" name="grade" class="isg" placeholder="0" value="0" readonly><br>
+			Grade:<input type="text" name="grade" class="isg" placeholder="0" value="0" readonly><br><br>
 			
 			
 			
@@ -26,8 +46,9 @@
 			
 			
 			</form>
-			
-			
+			<form action="idcheck.jsp">
+			<button style="width: 100px; height: 20px"   type="submit" onclick="idcheck()" value="중복체크"  >중복체크</button><br>
+   			</form>
 	
 	</body>
 </html>

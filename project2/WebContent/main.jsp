@@ -12,9 +12,9 @@
 	</head>
 	<body>
 	<h4>로그인후 메인페이지!</h4>
-	<a href="update.html">회원정보 조회후 수정</a>
-	<a href="delete.html">회원정보삭제</a>
-	<a href="shop1.html">회원 장바구니</a>
+	<a href="update.html">회원정보 조회및 수정및 삭제</a><br>
+	<a href="shop1.html">회원 장바구니 조회및 수정및 삭제</a><br>
+	<a href="shop2.html">회원 장바구니 추가</a><br>
 	
 	
 	

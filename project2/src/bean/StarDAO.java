@@ -32,6 +32,9 @@ public class StarDAO {
 		
 		//4단계 sql문 전달요청
 		ps.executeUpdate();
+		
+		mgr.freeConnection(con,ps);
+		
 	}
 	
 
@@ -50,6 +53,7 @@ public class StarDAO {
 		
 		//4단계 sql문 전달요청
 		ResultSet rs =  ps.executeQuery();
+		
 		StarDTO  dto2 = null;
 		while(rs.next()) {
 			dto2 = new StarDTO();
@@ -68,6 +72,7 @@ public class StarDAO {
 			
 		}
 		return dto2;
+		
 	}
 	
 	public void update(StarDTO dto) throws Exception {
@@ -90,6 +95,7 @@ public class StarDAO {
 		
 		//4단계 sql문 전달요청
 		ps.executeUpdate();
+		mgr.freeConnection(con,ps);
 	}
 	
 public void delete(StarDTO dto) throws Exception {
@@ -107,6 +113,7 @@ public void delete(StarDTO dto) throws Exception {
 		
 		//4단계 sql문 전달요청
 		ps.executeUpdate();
+		mgr.freeConnection(con,ps);
 	}
 		
 		

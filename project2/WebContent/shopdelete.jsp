@@ -12,11 +12,12 @@
 	<jsp:useBean id="dto" class="bean.StarDTO"></jsp:useBean>
 	<jsp:setProperty property="*" name="dto"/>
 	<%
-	
-	StarDAO dao = new StarDAO();
-	dao.insert(dto);
-	
-	response.sendRedirect("main.jsp");
+		StarDAO dao = new StarDAO();
+		 dao.delete(dto);
+		
+		
+		
+		 response.sendRedirect("main.jsp");
 	%>
 	
 	</body>
