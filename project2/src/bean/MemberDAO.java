@@ -1,13 +1,7 @@
 package bean;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
-
-
 import java.sql.*;
+import java.util.ArrayList;
 
 public class MemberDAO {
 	DBConnectionMgr mgr;
@@ -101,6 +95,7 @@ public class MemberDAO {
 		ps.setString(2,dto.getAddr());
 		
 		
+		
 		//4단계 sql문 전달요청
 		ResultSet rs =  ps.executeQuery();
 		
@@ -131,6 +126,57 @@ public class MemberDAO {
 		}
 		return dto2;
 	}
+	
+	
+	
+	public MemberDTO pwfind(MemberDTO dto) throws Exception {
+		
+		//1.2단계를 해주는 DBconnectinMgr 객체 필요
+		Connection con = mgr.getConnection();
+		
+		
+		
+		//3단계 sql문 결정
+		String sql = "select * from user where id=? AND tel=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1,dto.getId());
+		ps.setString(2,dto.getTel());
+		
+		
+		
+		
+		//4단계 sql문 전달요청
+		ResultSet rs =  ps.executeQuery();
+		
+		MemberDTO  dto2 = null;
+		while(rs.next()) {
+			dto2 = new MemberDTO();
+			String id = rs.getString(1);
+			String pw = rs.getString(2);
+			String tel = rs.getString(3);
+			String addr = rs.getString(4);
+			String tall = rs.getString(5);
+			String kg = rs.getString(6);
+			String sex = rs.getString(7);
+			String age = rs.getString(8);
+			String email = rs.getString(9);
+			String grade = rs.getString(10);
+			dto2.setId(id);
+			dto2.setPw(pw);
+			dto2.setTel(tel);
+			dto2.setAddr(addr);
+			dto2.setTall(Integer.parseInt(tall));
+			dto2.setKg(Double.parseDouble(kg));
+			dto2.setSex(sex);
+			dto2.setAge(Integer.parseInt(age));
+			dto2.setEmail(email);
+			dto2.setGrade(grade);
+			
+		}
+		return dto2;
+	}
+	
+	
 	
 	public void update(MemberDTO dto) throws Exception {
 		
@@ -177,33 +223,65 @@ public void delete(MemberDTO dto) throws Exception {
 		mgr.freeConnection(con,ps);
 	}
 		
-public MemberDTO idcheck(MemberDTO dto) throws Exception {
 	
-	//1.2단계를 해주는 DBconnectinMgr 객체 필요
-	Connection con = mgr.getConnection();
-	
-	
-	
-	//3단계 sql문 결정
-	String sql = "select* from user where id = ?";
-	PreparedStatement ps = con.prepareStatement(sql);
-	ps.setString(1,dto.getId());
-	
-	
-	//4단계 sql문 전달요청
-	ResultSet rs =  ps.executeQuery();
-	
-	MemberDTO  dto2 = null;
-	while(rs.next()) {
-		dto2 = new MemberDTO();
-		String id = rs.getString(1);
-		
-		dto2.setId(id);
-		
-		
-	}
-	return dto2;
-}
+	  public MemberDTO idcheck(MemberDTO dto) throws Exception {
+	  
+	  //1.2단계를 해주는 DBconnectinMgr 객체 필요 Connection con = mgr.getConnection();
+	 Connection con = mgr.getConnection();
+	  
+	  
+	  //3단계 sql문 결정 String sql = "select * from user where id=? ";
+	  String sql = "select * from user where id=? ";
+	  PreparedStatement ps = con.prepareStatement(sql);
+	  ps.setString(1,dto.getId());
+	  
+	  
+	  
+	  //4단계 sql문 전달요청 ResultSet rs = ps.executeQuery();
+	  ResultSet rs =  ps.executeQuery();
+	  
+	  MemberDTO dto2 = null; 
+	  while(rs.next()) { 
+		  dto2 = new MemberDTO(); 
+		  String id = rs.getString(1);
+	  
+	  dto2.setId(id);
+	  
+	  
+	  } return dto2; 
+	  
+	  }
+	 
+
+
+//public int idCheck(String id){
+//    int x = -1;
+//   PreparedStatement ps = null;
+//   ResultSet rs = null;
+//   try{
+//    Connection con = mgr.getConnection();
+//    String sql = "select * from user where id=?";
+//    ps = con.prepareStatement(sql);
+//    ps.setString(1, id);
+//    rs = ps.executeQuery();
+//    if(rs.next()){
+//      x = 1; //이미 존재하는 회원
+//    }else {
+//      x = -1; //가입 가능한 회원아이디
+//    }
+//   }catch(Exception e){
+//    e.printStackTrace();
+//   } finally {
+//      try {
+//         if(rs !=null) rs.close();
+//         if(ps != null) ps.close();
+//      }catch(Exception e) {
+//         e.printStackTrace();
+//      }
+//   }
+//   return x; //데이터베이스 오류
+//   
+//  }
 		
 		
 	

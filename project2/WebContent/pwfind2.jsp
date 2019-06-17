@@ -7,22 +7,25 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<script type="text/javascript">
 		
+		</script>
 	</head>
 	<body>
 	<jsp:useBean id="dto" class="bean.MemberDTO"></jsp:useBean>
 	<jsp:setProperty property="*" name="dto"/>
 	
 	<%
-
+	
 	MemberDAO dao = new MemberDAO();
-	MemberDTO dto2 = dao.idfind(dto);
-
- 	
-
+	MemberDTO dto2 = dao.pwfind(dto);
+	
+	
+	
+	
 	%>
-	ID:<%="는"+dto2.getId() +" 입니다"%>
-	 
+	 PW:<%=dto2.getPw() +"입니다"%> 
+	
 	
 	
 	

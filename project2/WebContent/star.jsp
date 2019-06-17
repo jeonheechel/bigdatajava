@@ -14,9 +14,9 @@
 		<jsp:setProperty property="*" name="dto"/>
 		
 		<%
-		String Id = request.getParameter("id");
+		
 		StarDAO dao = new StarDAO();
-		dao.select(Id);
+		dao.insert(dto);
 		
 		%>
 	</body>

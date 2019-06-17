@@ -11,6 +11,8 @@ public class MemberDTO {
 	private int age;
 	private String email;
 	private String grade;
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -71,6 +73,7 @@ public class MemberDTO {
 	public void setGrade(String grage) {
 		this.grade = grage;
 	}
+	
 	
 	
 	

@@ -43,7 +43,7 @@
 	<hr>
 		
 		<form name="choice">
-				수정요청 ID <input type="text" name="id" value = <%= dto2.getId() %>><br>
+				수정요청 ID <input type="text" name="id" value = <%= dto2.getId() %> readonly="readonly"><br>
 
 				수정할 PW: <input type="text"  name="pw" value=<%=dto2.getPw() %>><!--  표현식--><br>
 				수정할 TEL: <input type="text" name="tel" value=<%=dto2.getTel() %>><!--  표현식--><br>

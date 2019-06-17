@@ -13,13 +13,14 @@
 		<jsp:setProperty property="*" name="dto"/>
 		
 		<%
+		String id = request.getParameter("id");
 		MemberDAO dao = new MemberDAO();
 		MemberDTO dto2 = dao.select(dto);
 		
 		if(dto2 != null){
 			
 		   response.sendRedirect("main.jsp");
-		
+		   session.setAttribute("id", id);
 		
 		 
 		 }else{
