@@ -12,14 +12,7 @@
    <body>
    <jsp:useBean id="dto" class="bean.MemberDTO"></jsp:useBean>
       <jsp:setProperty property="*" name="dto"/>
-       <%
-      MemberDAO dao1 = new MemberDAO();
-      dao1.insert(dto);
-      
-       //response.sendRedirect("login.html");
-      %> 
-      
-       <%
+ <%--      <%
       MemberDAO dao = new MemberDAO();
       String id = request.getParameter("id");
       boolean result = dao.idCheck(id);
@@ -29,10 +22,17 @@
          out.print("입력하신 아이디는 "+id+"사용하실 수 없습니다.");
       }else{
          out.print("입력하신 "+id+"는 사용하실 수 있습니다.");
-      }
+      } --%>
       
       
-      %> 
+      
+      %>
+      <%
+      MemberDAO dao = new MemberDAO();
+      dao.insert(dto);
+      
+       /*response.sendRedirect("login.html");  */
+      %>
       
       
        

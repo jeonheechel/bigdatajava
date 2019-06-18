@@ -23,7 +23,9 @@
 		
 	%>
 	<body>
+	
 	<center>
+		<h4></h4>
 		<table border="1" bordercolor="red" width="600">
 			<tr align="center">
 				<td>아이디</td>

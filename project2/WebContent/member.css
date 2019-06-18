@@ -1,4 +1,25 @@
 @charset "UTF-8";
+
+
+#top2{
+	top:100px;
+	left:800px;
+	position: fixed;
+	width: 200px;
+	height: 100px;
+	background: black;
+	font: 궁서; 
+	font-size:10px;
+	font-weight: bold;
+	color: yellow;
+	border-top: 5px solid  aqua;
+	border-bottom: 10px double white;
+	border-radius: 100px 10px;
+	box-shadow:10px 10px;
+}
+
+
 .isg{background: red;
+
 
 }

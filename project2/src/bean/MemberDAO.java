@@ -224,64 +224,61 @@ public void delete(MemberDTO dto) throws Exception {
 	}
 		
 	
-	  public MemberDTO idcheck(MemberDTO dto) throws Exception {
-	  
-	  //1.2단계를 해주는 DBconnectinMgr 객체 필요 Connection con = mgr.getConnection();
-	 Connection con = mgr.getConnection();
-	  
-	  
-	  //3단계 sql문 결정 String sql = "select * from user where id=? ";
-	  String sql = "select * from user where id=? ";
-	  PreparedStatement ps = con.prepareStatement(sql);
-	  ps.setString(1,dto.getId());
-	  
-	  
-	  
-	  //4단계 sql문 전달요청 ResultSet rs = ps.executeQuery();
-	  ResultSet rs =  ps.executeQuery();
-	  
-	  MemberDTO dto2 = null; 
-	  while(rs.next()) { 
-		  dto2 = new MemberDTO(); 
-		  String id = rs.getString(1);
-	  
-	  dto2.setId(id);
-	  
-	  
-	  } return dto2; 
-	  
-	  }
-	 
+//	  public MemberDTO idcheck(MemberDTO dto) throws Exception {
+//	  
+//	  //1.2단계를 해주는 DBconnectinMgr 객체 필요 Connection con = mgr.getConnection();
+//	 Connection con = mgr.getConnection();
+//	  
+//	  
+//	  //3단계 sql문 결정 String sql = "select * from user where id=? ";
+//	  String sql = "select * from user where id=? ";
+//	  PreparedStatement ps = con.prepareStatement(sql);
+//	  ps.setString(1,dto.getId());
+//	  
+//	  
+//	  
+//	  //4단계 sql문 전달요청 ResultSet rs = ps.executeQuery();
+//	  ResultSet rs =  ps.executeQuery();
+//	  
+//	  MemberDTO dto2 = null; 
+//	  while(rs.next()) { 
+//		  dto2 = new MemberDTO(); 
+//		  String id = rs.getString(1);
+//	  
+//	  dto2.setId(id);
+//	  
+//	  
+//	  } return dto2; 
+//	  
+//	  }
+public boolean idCheck(String id){
+
+    boolean flag = false;
+ 
+    try {
+ 
+
+       Connection con = mgr.getConnection();
+ 
+       String sql = "select id from user where id=?";
+ 
+       PreparedStatement ps = con.prepareStatement(sql);
+       ps.setString(1, id);
+       ResultSet rs = ps.executeQuery();
+       
+       flag = rs.next(); //아이디 중복체크
+       
+       } catch (Exception e) {
+       
+       e.printStackTrace();
+       
+       } 
+       
+       return flag;
+       
+       }
 
 
-//public int idCheck(String id){
-//    int x = -1;
-//   PreparedStatement ps = null;
-//   ResultSet rs = null;
-//   try{
-//    Connection con = mgr.getConnection();
-//    String sql = "select * from user where id=?";
-//    ps = con.prepareStatement(sql);
-//    ps.setString(1, id);
-//    rs = ps.executeQuery();
-//    if(rs.next()){
-//      x = 1; //이미 존재하는 회원
-//    }else {
-//      x = -1; //가입 가능한 회원아이디
-//    }
-//   }catch(Exception e){
-//    e.printStackTrace();
-//   } finally {
-//      try {
-//         if(rs !=null) rs.close();
-//         if(ps != null) ps.close();
-//      }catch(Exception e) {
-//         e.printStackTrace();
-//      }
-//   }
-//   return x; //데이터베이스 오류
-//   
-//  }
 		
 		
 	

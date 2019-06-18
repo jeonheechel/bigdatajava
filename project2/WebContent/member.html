@@ -1,58 +1,83 @@
- 	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-		<link rel="stylesheet" type="text/css" href="member.css">
-		  <script type="text/javascript">
-			function idcheck(){
-			 var id = document.form.id.value;
-			 if(id.length<1 || id==null){
-			  alert("중복체크할 아이디를 입력하십시오");
-			  return false;
-			 }
-			 var url = "idCheck2.jsp?id=" + id;
-			 window.open(url, "get", "height = 180, width = 300");
-			}
-		
-		</script>
-	</head>
-	<body>
-	<h1>회원가입 화면입니다</h1>
-		<hr color="red">
-			<form action="member.jsp"><!-- 클라이언트의  요청이다  -->
-			ID : <input type="text" name="id" id="id"> &nbsp;&nbsp;&nbsp;
-   			 <input type="button" value=" 중복체크" onclick="idcheck" id="id" name="id">
-   			 <!--   <input style="width: 100px; height: 20px" type="button" onclick="idcheck()"  value="중복체크"><br> -->
-   				
-			
-   			<!--  <button style="width: 100px; height: 20px"   type="submit" onclick="idcheck()" value="중복체크"  >중복체크</button><br>-->
-   			
-   			
-   			
-			PW:<input type="text" name="pw"><br>
-			PWCHECK:<input type="text" name="pw"><br>
-			TEL:<input type="text" name="tel"><br>
-			ADDR:<input type="text" name="addr"><br>
-			TALL:<input type="text" name="tall"><br>
-			KG:<input type="text" name="kg"><br>
-			SEX:<input type="text" name="sex"><br>
-			AGE:<input type="text" name="age"><br>
-			EMAIL:<input type="text" name="email"><br>
-			Grade:<input type="text" name="grade" class="isg" placeholder="0" value="0" readonly><br><br>
-			
-			
-			
-			<input type="submit" value="서버로 전송">
-			
-			
-			</form>
-			<!-- <form action="idcheck2.jsp">
-		 	<input type = "hidden"  id="id" name="id">
-			<button style="width: 100px;  height: 20px"   type="submit" onclick="idcheck()" value="중복체크"  >중복체크</button><br>
-   			</form>  -->
-	
-	</body>
+   <head>
+      <meta charset="UTF-8">
+      <title>Insert title here</title>
+      <link rel="stylesheet" type="text/css" href="member.css">
+        <script type="text/javascript">
+           function checkIt() {
+              if(!document.userinput.id.value){
+                 alert("ID를 입력하세요.");
+                 return false;
+              }
+              if(!document.userinput.pw.value){
+                 alert("비밀번호를 입력하세요.");
+                 return false;
+              }
+              if(!document.userinput.pw.value != document.userinput.pw2.value){
+                 alert("비밀번호를 동일하게 입력하세요.");
+                 return false;
+              }
+              
+         }
+           function openConfirmid(inputid) {
+              if(inputid.id.value == ""){
+                 alert("중복확인에러: 아이디를 입력하세요.")
+                 return;
+              }
+              url = "member.jsp?id=" + inputid.id.value;
+              open(url,"confirm", "toolbar=no, location=no, menubar=no, scrollbars=no resizable=no, width=500,height=5000");
+            
+         }
+           function checkPwd(){
+        	   var f1 = document.forms[0];
+        	   var pw1 = f1.pw.value;
+        	   var pw2 = f1.pw_check.value;
+        	   if(pw1!=pw2){
+        	    document.getElementById('checkPwd').style.color = "red";
+        	    document.getElementById('checkPwd').innerHTML = "동일한 암호를 입력하세요."; 
+        	   }else{
+        	    document.getElementById('checkPwd').style.color = "black";
+        	    document.getElementById('checkPwd').innerHTML = "암호가 확인 되었습니다."; 
+        	    
+        	   }
+        	   
+        	  }
+
+        	
+         
+      </script>
+   </head>
+   <body>
+   <center>
+   <h1>회원가입 화면입니다</h1>
+      <hr color="red">
+         <form method="post" action="member.jsp"  name="userinput" onSubmit="return checkIt()"> <!-- 클라이언트의  요청이다  -->
+         ID : <input type="text" name="id">
+         <input type="button" name ="confirm_id" value ="중복확인" onclick="openConfirmid(this.form)"><br>          
+            
+             
+         PW:<input type="password" name="pw"><br>
+         PWCHECK:<input type="password" name="pw_check" onkeyup="checkPwd()"><br>
+         <div id="checkPwd">동일한 암호를 입력하세요.</div><br>
+         TEL:<input type="text" name="tel"><br>
+         ADDR:<input type="text" name="addr"><br>
+         TALL:<input type="text" name="tall"><br>
+         KG:<input type="text" name="kg"><br>
+         SEX:<input type="text" name="sex"><br>
+         AGE:<input type="text" name="age"><br>
+         EMAIL:<input type="text" name="email"><br>
+         Grade:<input type="text" name="grade" class="isg" placeholder="0" value="0" readonly><br>
+         
+         
+         
+         <input type="submit" value="서버로 전송">
+         
+         
+         </form>
+   </center>
+   
+   </body>
 </html>
 
 
