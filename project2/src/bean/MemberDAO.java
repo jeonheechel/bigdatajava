@@ -224,33 +224,27 @@ public void delete(MemberDTO dto) throws Exception {
 	}
 		
 	
-//	  public MemberDTO idcheck(MemberDTO dto) throws Exception {
-//	  
-//	  //1.2단계를 해주는 DBconnectinMgr 객체 필요 Connection con = mgr.getConnection();
-//	 Connection con = mgr.getConnection();
-//	  
-//	  
-//	  //3단계 sql문 결정 String sql = "select * from user where id=? ";
-//	  String sql = "select * from user where id=? ";
-//	  PreparedStatement ps = con.prepareStatement(sql);
-//	  ps.setString(1,dto.getId());
-//	  
-//	  
-//	  
-//	  //4단계 sql문 전달요청 ResultSet rs = ps.executeQuery();
-//	  ResultSet rs =  ps.executeQuery();
-//	  
-//	  MemberDTO dto2 = null; 
-//	  while(rs.next()) { 
-//		  dto2 = new MemberDTO(); 
-//		  String id = rs.getString(1);
-//	  
-//	  dto2.setId(id);
-//	  
-//	  
-//	  } return dto2; 
-//	  
-//	  }
+public int checkId(String id) throws Exception{
+		Connection con = mgr.getConnection();
+	    int re = 0;
+	   
+	   
+	    String sql="select * from user where id=?";
+	    PreparedStatement ps = con.prepareStatement(sql);
+	    ps.setString(1,id);
+	    ResultSet rs = ps.executeQuery();
+	    while(rs.next()){
+	     re = 1;
+	    }
+	   
+
+	   
+	   return re;
+	 }//end list()
+
+	
+
+
 public boolean idCheck(String id){
 
     boolean flag = false;

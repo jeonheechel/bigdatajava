@@ -4,45 +4,79 @@
       <meta charset="UTF-8">
       <title>Insert title here</title>
       <link rel="stylesheet" type="text/css" href="member.css">
-        <script type="text/javascript">
-           function checkIt() {
-              if(!document.userinput.id.value){
-                 alert("ID를 입력하세요.");
-                 return false;
-              }
-              if(!document.userinput.pw.value){
-                 alert("비밀번호를 입력하세요.");
-                 return false;
-              }
-              if(!document.userinput.pw.value != document.userinput.pw2.value){
-                 alert("비밀번호를 동일하게 입력하세요.");
-                 return false;
-              }
-              
-         }
-           function openConfirmid(inputid) {
-              if(inputid.id.value == ""){
-                 alert("중복확인에러: 아이디를 입력하세요.")
-                 return;
-              }
-              url = "member.jsp?id=" + inputid.id.value;
-              open(url,"confirm", "toolbar=no, location=no, menubar=no, scrollbars=no resizable=no, width=500,height=5000");
-            
-         }
-           function checkPwd(){
-        	   var f1 = document.forms[0];
-        	   var pw1 = f1.pw.value;
-        	   var pw2 = f1.pw_check.value;
-        	   if(pw1!=pw2){
-        	    document.getElementById('checkPwd').style.color = "red";
-        	    document.getElementById('checkPwd').innerHTML = "동일한 암호를 입력하세요."; 
-        	   }else{
-        	    document.getElementById('checkPwd').style.color = "black";
-        	    document.getElementById('checkPwd').innerHTML = "암호가 확인 되었습니다."; 
-        	    
-        	   }
-        	   
-        	  }
+		<script type="text/javascript" src="httpRequest.js"></script>
+		<script type="text/javascript">
+		
+        var checkFirst = false;
+ 		var lastKeyword = '';
+ 		var loopSendKeyword = false;
+ 
+		function checkId() {
+		if (checkFirst == false) {
+		//0.5초 후에 sendKeyword()함수 실행
+		setTimeout("sendId();", 500);
+		loopSendKeyword = true;
+		}
+		checkFirst = true;
+		}
+ 
+		function checkPwd(){
+		var f1 = document.forms[0];
+		var pw1 = f1.pw.value;
+		var pw2 = f1.pw_check.value;
+		if(pw1!=pw2){
+		document.getElementById('checkPwd').style.color = "red";
+		document.getElementById('checkPwd').innerHTML = "동일한 암호를 입력하세요."; 
+		}else{
+		document.getElementById('checkPwd').style.color = "black";
+		document.getElementById('checkPwd').innerHTML = "암호가 확인 되었습니다."; 
+		
+		}
+		
+		}
+ 
+ 
+		function sendId() {
+		if (loopSendKeyword == false) return;
+		
+		var keyword = document.search.id.value;
+		if (keyword == '') {
+		lastKeyword = '';
+		document.getElementById('checkMsg').style.color = "black";
+		document.getElementById('checkMsg').innerHTML = "아이디를 입력하세요.";
+		} else if (keyword != lastKeyword) {
+		lastKeyword = keyword;
+		
+		if (keyword != '') {
+			var params = "id="+encodeURIComponent(keyword);
+			sendRequest("member.jsp", params, displayResult, 'POST');
+		} else {
+		}
+		}
+		setTimeout("sendId();", 500);
+		}
+ 
+ 
+		function displayResult() {
+		if (httpRequest.readyState == 4) {
+		if (httpRequest.status == 200) {
+			var resultText = httpRequest.responseText;
+			var listView = document.getElementById('checkMsg');
+			if(resultText==0){
+			listView.innerHTML = "사용 할 수 있는 ID 입니다";
+			listView.style.color = "blue";
+			}else{
+			listView.innerHTML = "이미 등록된 ID 입니다";
+			listView.style.color = "red";
+			}
+		} else {
+			alert("에러 발생: "+httpRequest.status);
+		}
+		}
+		}
+
+
+
 
         	
          
@@ -53,8 +87,9 @@
    <h1>회원가입 화면입니다</h1>
       <hr color="red">
          <form method="post" action="member.jsp"  name="userinput" onSubmit="return checkIt()"> <!-- 클라이언트의  요청이다  -->
-         ID : <input type="text" name="id">
-         <input type="button" name ="confirm_id" value ="중복확인" onclick="openConfirmid(this.form)"><br>          
+         ID:<input type="text" name="id" id="id" onkeydown="checkId()" >  
+        <div id="checkMsg">아이디를 입력하세요.</div>
+         <!--  <input type="button" name ="confirm_id" value ="중복확인" onclick="openConfirmid(this.form)"><br>  -->        
             
              
          PW:<input type="password" name="pw"><br>
@@ -71,8 +106,8 @@
          
          
          
-         <input type="submit" value="서버로 전송">
-         
+         <input type="button" value="회원가입" onclick="check()">&nbsp;
+         <input type="reset" value="RESET" >&nbsp;
          
          </form>
    </center>
