@@ -12,19 +12,15 @@
    <body>
    <jsp:useBean id="dto" class="bean.MemberDTO"></jsp:useBean>
       <jsp:setProperty property="*" name="dto"/>
-      <%--  <%
-      MemberDAO dao1 = new MemberDAO();
-      dao1.insert(dto);
+       
+     <%
+      MemberDAO dao = new MemberDAO();
+      dao.insert(dto);
       
-       //response.sendRedirect("login.html");
-      %>  --%>
       
-       <%
-		String id = request.getParameter("id");
-		MemberDAO dao = new MemberDAO();
-		int re = dao.checkId(id);
-		%>
-		<%=re%>
+     %>  
+      
+
 
 
 

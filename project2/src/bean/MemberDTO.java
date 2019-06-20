@@ -73,6 +73,13 @@ public class MemberDTO {
 	public void setGrade(String grage) {
 		this.grade = grage;
 	}
+	@Override
+	public String toString() {
+		return "MemberDTO [id=" + id + ", pw=" + pw + ", tel=" + tel + ", addr=" + addr + ", tall=" + tall + ", kg="
+				+ kg + ", sex=" + sex + ", age=" + age + ", email=" + email + ", grade=" + grade + "]";
+	}
+	
+	
 	
 	
 	

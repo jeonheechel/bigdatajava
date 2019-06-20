@@ -9,6 +9,7 @@ public class MemberDAO {
 		
 		mgr = DBConnectionMgr.getInstance();//한개밖에 못만든다
 	}
+	
 	public void insert(MemberDTO dto) throws Exception {
 		
 		//1.2단계를 해주는 DBconnectinMgr 객체 필요
@@ -17,7 +18,7 @@ public class MemberDAO {
 		
 		
 		//3단계 sql문 결정
-		String sql = "insert into user value(?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into user values (?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1,dto.getId());
 		ps.setString(2,dto.getPw());
@@ -229,7 +230,7 @@ public int checkId(String id) throws Exception{
 	    int re = 0;
 	   
 	   
-	    String sql="select * from user where id=?";
+	    String sql="select id from user where id=?";
 	    PreparedStatement ps = con.prepareStatement(sql);
 	    ps.setString(1,id);
 	    ResultSet rs = ps.executeQuery();
@@ -247,7 +248,7 @@ public int checkId(String id) throws Exception{
 
 public boolean idCheck(String id){
 
-    boolean flag = false;
+    boolean result = false;
  
     try {
  
@@ -260,7 +261,7 @@ public boolean idCheck(String id){
        ps.setString(1, id);
        ResultSet rs = ps.executeQuery();
        
-       flag = rs.next(); //아이디 중복체크
+       result = rs.next(); //아이디 중복체크
        
        } catch (Exception e) {
        
@@ -268,7 +269,7 @@ public boolean idCheck(String id){
        
        } 
        
-       return flag;
+       return result;
        
        }
 
