@@ -50,8 +50,10 @@
 				수정할 ADDR: <input type="text" name="addr" value=<%=dto2.getAddr() %>><!--  표현식--><br>
 				수정할 TALL: <input type="text" name="tall" value=<%=dto2.getTall() %>><!--  표현식--><br>
 				수정할 KG: <input type="text" name="kg" value=<%=dto2.getKg() %>><!--  표현식--><br>
-				수정할 SEX: <input type="text" name="sex" value=<%=dto2.getSex() %> readonly="readonly"><!--  표현식--><br>
-				수정할 AGE: <input type="text" name="age" value=<%=dto2.getAge() %>><!--  표현식--><br>
+				수정할 GENDER: <input type="text" name="sex" value=<%=dto2.getSex() %> readonly="readonly"><!--  표현식--><br>
+				수정할 AGEYY: <input type="text" name="ageyy" value=<%=dto2.getAgeyy() %> readonly="readonly"><!--  표현식--><br>
+				수정할 AGEMM: <input type="text" name="agemm" value=<%=dto2.getAgemm() %> readonly="readonly"><!--  표현식--><br>
+				수정할 AGEDD: <input type="text" name="agedd" value=<%=dto2.getAgedd() %> readonly="readonly"><!--  표현식--><br>
 				수정할 EMAIL: <input type="text" name="email" value=<%=dto2.getEmail() %>><!--  표현식--><br>
 				수정할 GRADE: <input type="text" name="grade" value=<%=dto2.getGrade() %> readonly="readonly"><!--  표현식--><br>
 	

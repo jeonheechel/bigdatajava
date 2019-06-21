@@ -8,7 +8,9 @@ public class MemberDTO {
 	private int tall;
 	private double kg;
 	private String sex;
-	private int age;
+	private int ageyy;
+	private int agemm;
+	private int agedd;
 	private String email;
 	private String grade;
 	
@@ -55,11 +57,23 @@ public class MemberDTO {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public int getAge() {
-		return age;
+	public int getAgeyy() {
+		return ageyy;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setAgeyy(int ageyy) {
+		this.ageyy = ageyy;
+	}
+	public int getAgemm() {
+		return agemm;
+	}
+	public void setAgemm(int agemm) {
+		this.agemm = agemm;
+	}
+	public int getAgedd() {
+		return agedd;
+	}
+	public void setAgedd(int agedd) {
+		this.agedd = agedd;
 	}
 	public String getEmail() {
 		return email;
@@ -70,14 +84,12 @@ public class MemberDTO {
 	public String getGrade() {
 		return grade;
 	}
-	public void setGrade(String grage) {
-		this.grade = grage;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
-	@Override
-	public String toString() {
-		return "MemberDTO [id=" + id + ", pw=" + pw + ", tel=" + tel + ", addr=" + addr + ", tall=" + tall + ", kg="
-				+ kg + ", sex=" + sex + ", age=" + age + ", email=" + email + ", grade=" + grade + "]";
-	}
+	
+	
+	
 	
 	
 	

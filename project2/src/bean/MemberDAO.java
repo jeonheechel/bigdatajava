@@ -18,7 +18,7 @@ public class MemberDAO {
 		
 		
 		//3단계 sql문 결정
-		String sql = "insert into user values (?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into user values (?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1,dto.getId());
 		ps.setString(2,dto.getPw());
@@ -27,9 +27,11 @@ public class MemberDAO {
 		ps.setInt(5,dto.getTall());
 		ps.setDouble(6,dto.getKg());
 		ps.setString(7,dto.getSex());
-		ps.setInt(8,dto.getAge());
-		ps.setString(9,dto.getEmail());
-		ps.setString(10,dto.getGrade());
+		ps.setInt(8,dto.getAgeyy());
+		ps.setInt(9,dto.getAgemm());
+		ps.setInt(10,dto.getAgedd());
+		ps.setString(11,dto.getEmail());
+		ps.setString(12,dto.getGrade());
 		
 		//4단계 sql문 전달요청
 		ps.executeUpdate();
@@ -63,9 +65,11 @@ public class MemberDAO {
 			String tall = rs.getString(5);
 			String kg = rs.getString(6);
 			String sex = rs.getString(7);
-			String age = rs.getString(8);
-			String email = rs.getString(9);
-			String grade = rs.getString(10);
+			String ageyy = rs.getString(8);
+			String agemm = rs.getString(9);
+			String agedd = rs.getString(10);
+			String email = rs.getString(11);
+			String grade = rs.getString(12);
 			dto2.setId(id);
 			dto2.setPw(pw);
 			dto2.setTel(tel);
@@ -73,7 +77,9 @@ public class MemberDAO {
 			dto2.setTall(Integer.parseInt(tall));
 			dto2.setKg(Double.parseDouble(kg));
 			dto2.setSex(sex);
-			dto2.setAge(Integer.parseInt(age));
+			dto2.setAgeyy(Integer.parseInt(ageyy));
+			dto2.setAgemm(Integer.parseInt(agemm));
+			dto2.setAgedd(Integer.parseInt(agedd));
 			dto2.setEmail(email);
 			dto2.setGrade(grade);
 			
@@ -110,9 +116,11 @@ public class MemberDAO {
 			String tall = rs.getString(5);
 			String kg = rs.getString(6);
 			String sex = rs.getString(7);
-			String age = rs.getString(8);
-			String email = rs.getString(9);
-			String grade = rs.getString(10);
+			String ageyy = rs.getString(8);
+			String agemm = rs.getString(9);
+			String agedd = rs.getString(10);
+			String email = rs.getString(11);
+			String grade = rs.getString(12);
 			dto2.setId(id);
 			dto2.setPw(pw);
 			dto2.setTel(tel);
@@ -120,7 +128,9 @@ public class MemberDAO {
 			dto2.setTall(Integer.parseInt(tall));
 			dto2.setKg(Double.parseDouble(kg));
 			dto2.setSex(sex);
-			dto2.setAge(Integer.parseInt(age));
+			dto2.setAgeyy(Integer.parseInt(ageyy));
+			dto2.setAgemm(Integer.parseInt(agemm));
+			dto2.setAgedd(Integer.parseInt(agedd));
 			dto2.setEmail(email);
 			dto2.setGrade(grade);
 			
@@ -159,9 +169,11 @@ public class MemberDAO {
 			String tall = rs.getString(5);
 			String kg = rs.getString(6);
 			String sex = rs.getString(7);
-			String age = rs.getString(8);
-			String email = rs.getString(9);
-			String grade = rs.getString(10);
+			String ageyy = rs.getString(8);
+			String agemm = rs.getString(9);
+			String agedd = rs.getString(10);
+			String email = rs.getString(11);
+			String grade = rs.getString(12);
 			dto2.setId(id);
 			dto2.setPw(pw);
 			dto2.setTel(tel);
@@ -169,7 +181,9 @@ public class MemberDAO {
 			dto2.setTall(Integer.parseInt(tall));
 			dto2.setKg(Double.parseDouble(kg));
 			dto2.setSex(sex);
-			dto2.setAge(Integer.parseInt(age));
+			dto2.setAgeyy(Integer.parseInt(ageyy));
+			dto2.setAgemm(Integer.parseInt(agemm));
+			dto2.setAgedd(Integer.parseInt(agedd));
 			dto2.setEmail(email);
 			dto2.setGrade(grade);
 			
@@ -187,7 +201,7 @@ public class MemberDAO {
 		
 		
 		//3단계 sql문 결정
-		String sql = "update user set  id= ?, pw= ?, tel= ?, addr= ?, tall= ?, kg= ?, sex= ?, age= ?, email= ?, grade= ?     where id= ? ";
+		String sql = "update user set  id= ?, pw= ?, tel= ?, addr= ?, tall= ?, kg= ?, sex= ?, ageyy= ?, agemm= ?, agedd= ?, email= ?, grade= ?     where id= ? ";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1,dto.getId());
 		ps.setString(2,dto.getPw());
@@ -196,10 +210,12 @@ public class MemberDAO {
 		ps.setInt(5,dto.getTall());
 		ps.setDouble(6,dto.getKg());
 		ps.setString(7,dto.getSex());
-		ps.setInt(8,dto.getAge());
-		ps.setString(9,dto.getEmail());
-		ps.setString(10,dto.getGrade());
-		ps.setString(11,dto.getId());
+		ps.setInt(8,dto.getAgeyy());
+		ps.setInt(9,dto.getAgeyy());
+		ps.setInt(10,dto.getAgeyy());
+		ps.setString(11,dto.getEmail());
+		ps.setString(12,dto.getGrade());
+		ps.setString(13,dto.getId());
 		
 		//4단계 sql문 전달요청
 		ps.executeUpdate();

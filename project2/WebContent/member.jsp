@@ -14,6 +14,7 @@
       <jsp:setProperty property="*" name="dto"/>
        
      <%
+      String sex = request.getParameter("sex");
       MemberDAO dao = new MemberDAO();
       dao.insert(dto);
       
