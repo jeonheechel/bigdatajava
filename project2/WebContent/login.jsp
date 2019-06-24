@@ -25,7 +25,7 @@
 		 
 		 }else{
 			 
-			 response.sendRedirect("login.html");
+			 response.sendRedirect("index.html");
 			
 		 }
 		
