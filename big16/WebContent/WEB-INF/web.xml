@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>big16</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <listener>
+  	<listener-class>com.itbank.ContextStartEnd</listener-class>
+  </listener>
+  
+  <servlet>
+ 	 <servlet-name>h</servlet-name>
+  	 <servlet-class>com.itbank.Hello</servlet-class>
+  	 <init-param>
+  	  	<param-name>driver</param-name>
+  	  	<param-value>com.mysql.jdbc.Driver</param-value>
+  	 </init-param>
+  </servlet>
+  <servlet-mapping>
+ 	 <servlet-name>h</servlet-name>
+  	 <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  <servlet>
+ 	 <servlet-name>hi</servlet-name>
+  	 <servlet-class>com.itbank.Hi</servlet-class>
+  	 <init-param>
+  	  	<param-name>id</param-name>
+  	  	<param-value>root</param-value>
+  	 </init-param>
+  	 <init-param>
+  	  	<param-name>pw</param-name>
+  	  	<param-value>1234</param-value>
+  	 </init-param>
+  </servlet>
+  <servlet-mapping>
+ 	 <servlet-name>hi</servlet-name>
+  	 <url-pattern>/hi</url-pattern>
+  </servlet-mapping>
+</web-app>
