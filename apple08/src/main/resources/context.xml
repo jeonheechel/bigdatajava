@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--   <bean id="car1" class="com.itbank.mvc08.SportsCar">
+ <constructor-arg ref="window1"></constructor-arg> 1) 생성자에 넣는 방법  주소값 참조
+ <constructor-arg value="빨강"></constructor-arg>값 입력 참조 
+ <constructor-arg value="300"></constructor-arg>값 입력 참조 
+ </bean>파리미터 생성자 호출하는 (넣는) 방법! -->
+ 
+ 
+  <!-- <bean id="car1" class="com.itbank.mvc08.SportsCar">
+   <property name="window" ref="window1"></property> 1) set메서드로 넣는 방법 에 넣는 방법set메서드는 순서가 중요하지 않다!
+   <property name="color" value="파랑"></property>1) set메서드로 넣는 방법 에 넣는 방법
+   <property name="speed" value="200"></property>1) set메서드로 넣는 방법 에 넣는 방법
+	
+ </bean>  -->
+ 
+ <bean id="car1" class="com.itbank.mvc08.SportsCar">
+ <constructor-arg ref="window1"></constructor-arg> <!--  1) 생성자에 넣는 방법  주소값 참조-->
+ <constructor-arg value="빨강"></constructor-arg><!--  값 입력 참조 --> 
+ <constructor-arg value="300"></constructor-arg><!--  값 입력 참조 --> 
+ <constructor-arg ref="door1"></constructor-arg>
+ </bean>
+ 
+ <bean id="car2" class="com.itbank.mvc08.SuperCar">
+   <property name="window" ref="window2"></property><!-- 1) set메서드로 넣는 방법 에 넣는 방법set메서드는 순서가 중요하지 않다!-->
+   <property name="color" value="파랑"></property> <!-- 1) set메서드로 넣는 방법 에 넣는 방법-->
+   <property name="speed" value="200"></property> <!-- 1) set메서드로 넣는 방법 에 넣는 방법-->
+   <property name="door" ref="door2"></property> <!-- 1) set메서드로 넣는 방법 에 넣는 방법-->
+ </bean>
+ 
+ 
+<bean id="window1" class="com.itbank.mvc08.AutoWindow"></bean> <!--객체의 조립은 여기서 하는거다-->
+<bean id="window2" class="com.itbank.mvc08.StrongWindow"></bean> <!-- 객체의 조립은 여기서 하는거다 -->
+<bean id="door1" class="com.itbank.mvc08.SkyDoor"></bean><!-- 객체의 조립은 여기서 하는거다 -->
+<bean id="door2" class="com.itbank.mvc08.GeneralDoor"></bean><!-- 객체의 조립은 여기서 하는거다 -->
+
+</beans>
