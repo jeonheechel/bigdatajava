@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<!-- <typeAlias type="com.itbank.mvc88.BbsDTO" alias="bbsDto"></typeAlias> --><!--마이바티스와 관련 된 설정파일이다  -->
+		<typeAlias type="com.itbank.mvc88.MemberDTO" alias="mDTO"></typeAlias>
+		<typeAlias type="com.itbank.mvc88.BbsDTO" alias="bDTO"></typeAlias>
+	</typeAliases>
+	<mappers>
+		<mapper resource="mapper/memberMapper.xml" />
+		<mapper resource="mapper/bbsMapper.xml" />
+	</mappers>
+</configuration>

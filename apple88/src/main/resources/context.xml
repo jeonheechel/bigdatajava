@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--  
+ <bean id="memberDAO" class="com.itbank.mvc88.MemberDAO">
+	<constructor-arg ref="myBatis"></constructor-arg>
+</bean>
+
+ <bean id="myBatis" class="org.mybatis.spring.SqlSessionTemplate">	
+ 	<constructor-arg name="sqlSessionFactory" ref="config"></constructor-arg>
+ </bean> 
+ <bean id="config" class="org.mybatis.spring.SqlSessionFactoryBean">
+ 	<property name="configLocation" value="classpath:mybatis-config.xml"></property> 클래스 패스라고 넣어주면 리소스 밑이라고 알아서 찾는다 
+ 	<property name="dataSource" ref="dbcp"></property> 이거는 셋메소드 호출! 
+ </bean>
+
+<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property> 이거는 셋메소드 호출! 
+	<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property> 이거는 셋메소드 호출! 
+	<property name="username" value="root"></property>< 이거는 셋메소드 호출! 
+	<property name="password" value="1234"></property>커넥터에 dbcp까지 설정 된거다이거는 셋메소드 호출! 
+
+</bean> 
+
+	 전체 마이바티스세팅 완료이다 
+-->
+
+
+<bean id="memberDAO" class="com.itbank.mvc88.MemberDAO">
+	<constructor-arg ref="myBatis"></constructor-arg>
+</bean>
+
+<bean id="bbsDAO" class="com.itbank.mvc88.BbsDAO">
+	<constructor-arg ref="myBatis"></constructor-arg>
+</bean>
+ <bean id="myBatis" class="org.mybatis.spring.SqlSessionTemplate">	
+ 	<constructor-arg name="sqlSessionFactory" ref="config"></constructor-arg>
+ </bean> 
+ <bean id="config" class="org.mybatis.spring.SqlSessionFactoryBean">
+ 	<property name="configLocation" value="classpath:mybatis-config.xml"></property>  
+ 	<property name="dataSource" ref="dbcp"></property> 
+ </bean>
+
+<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property> 
+	<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property> 
+	<property name="username" value="root"></property>
+	<property name="password" value="1234"></property>
+
+</bean>
+
+<!-- bbs --> 
+</beans>
