@@ -1,0 +1,6 @@
+select * from member
+
+create table mycomment(
+writer varchar2(30),
+comment varchar2(30)
+);

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mDAO">
+
+	<select id="select" parameterType="mDTO" resultMap="rsMap">
+		SELECT * FROM member
+		WHERE id = #{id}
+	</select>
+	<!-- ${ } - 미리 값을 가지고 있다가 실행?? / #{ } - 실행할 때 작용 EL이 2가지 인 것으로 생각 -->
+
+	<!-- resultset을 dto setter이용해서 넣던 것을 지정만 하면 자동으로 매핑 시켜주는 것 -->
+	<resultMap type="mDTO" id="rsMap">
+		<!-- <id property="param1" column="columnname1" /> -->
+		<result property="id" column="id" />
+		<result property="pw" column="pw" />
+		<result property="name" column="name" />
+		<result property="tel" column="tel" />
+	</resultMap>
+
+	<select id="selectAll" resultMap="rsMap">
+		SELECT * FROM member
+	</select>
+
+	<insert id="insert" parameterType="mDTO">
+		INSERT INTO member VALUES(#{id},#{pw},#{name},#{tel})
+	</insert>
+	<!-- #{id} 는 dto.getId();와 같은 역할 -->
+
+	<update id="update" parameterType="mDTO">
+		UPDATE member
+		SET
+		tel=#{tel}
+		WHERE
+		id = #{id}
+	</update>
+
+	<delete id="delete" parameterType="mDTO">
+		DELETE FROM member WHERE
+		id = #{id}
+	</delete>
+
+</mapper>
