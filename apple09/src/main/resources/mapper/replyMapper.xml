@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="rDAO"><!-- SQL설정할 때는 이곳에서 함 -->
+
+	<select id="select" parameterType="rDTO" resultMap="rsMap">
+		SELECT * FROM reply
+		WHERE id = #{id}<!-- #EL문은 미리 실행할 준비 후 값이 들어오면 바로 실행 -->
+	</select>
+
+	<resultMap type="rDTO" id="rsMap">
+		<result property="name" column="name" />
+		<result property="content" column="content" />
+	</resultMap>
+
+	<select id="selectAll" resultMap="rsMap">
+		SELECT * FROM reply <!-- Mapper 파일은 세미콜론을 쓰지 않음 -->
+	</select>
+
+	<insert id="insert" parameterType="rDTO">
+		INSERT INTO reply
+		VALUES(#{name},#{content})
+	</insert>
+
+</mapper>
