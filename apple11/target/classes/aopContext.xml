@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+<!-- 태그 Element(요소) -->
+<!-- Empty Element(빈 요소) <br> <p></p> -->
+<!-- <context:component-scan base-package=""></context:component-scan> -->
+
+<!--  여기 아래 있는건 다가져온다 -->
+<context:component-scan base-package="com.itbank.mvc11"/><!-- 이게 어노테이션 -->
+<bean id="aspect" class="com.itbank.mvc11.AspectClass"></bean> <!-- 객체를 인식하게 해놓은것! -->
+
+
+<aop:config>
+	<!-- 끼워넣을 위치 검색(핵심 메소드) -->
+	 <!--  <aop:pointcut expression="execution(* com.itbank.mvc11.ASite.person*(..))" id="person"/>	 -->
+	 <!-- <aop:pointcut expression="execution(* com.itbank.mvc11.CSite.r*(..))" id="p1"/>	
+	 <aop:pointcut expression="execution(* com.itbank.mvc11.CSite.c*(..))" id="p2"/>	 -->
+	
+	<aop:pointcut expression="execution(* com.itbank.mvc11.BSite2.productF*(..))" id="find"/>
+	<aop:pointcut expression="execution(* com.itbank.mvc11.BSite2.b*(..))" id="basket"/>
+	<aop:pointcut expression="execution(* com.itbank.mvc11.BSite2.productO*(..))" id="order"/>
+	
+	<!--                    실행할때 조립   반환값           여기있는 어떤거든 상관없다          입력값이 있어도 없어도 그만  -->
+	
+ 	<aop:aspect ref="aspect">
+	<!-- 	 <aop:before method="login" pointcut-ref="person"/> 
+ 		<aop:before method="login2" pointcut-ref="person"/>
+		<aop:after method="logout" pointcut-ref="person"/>  -->
+		<aop:after-returning method="returnCall" pointcut-ref="find" returning="returnObj"/>
+		<aop:after-throwing method="errorCall" pointcut-ref="basket"/>
+		<aop:around method="aroundCall" pointcut-ref="order"/>
+	</aop:aspect>
+</aop:config>  
+<!-- <aop:aspect ref="aspect">
+		
+		<aop:before method="login2" pointcut-ref="person"/>
+		<aop:after method="login" pointcut-ref="p2"/>
+		<aop:after method="logout" pointcut-ref="p3"/>
+	</aop:aspect>
+</aop:config> -->
+
+
+</beans>
