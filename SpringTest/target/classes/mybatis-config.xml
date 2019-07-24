@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.itbank.mvcSpring.MusicDTO" alias="mDTO"></typeAlias><!-- 별칭 선언 -->
+		
+	</typeAliases>
+	<mappers>
+		<mapper resource="mapper/musicMapper.xml" /><!-- 경로 -->
+		
+		
+	</mappers>
+</configuration>

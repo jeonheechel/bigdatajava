@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mDAO">
+
+	<select id="select" parameterType="mDTO" resultMap="rsMap">
+		SELECT * FROM music
+		WHERE id = #{id}
+	</select>
+
+	<resultMap type="mDTO" id="rsMap"><!-- dto에 값을 넣기위한 정의 -->
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="price" column="price" />
+		<result property="singer" column="singer" />
+	</resultMap>
+
+	<select id="selectAll" resultMap="rsMap"><!-- db의 값을 전부 들고오는 부분-->
+		SELECT * FROM music
+	</select>
+
+	<insert id="insert" parameterType="mDTO"><!-- db에 값을 넣는 부분-->
+		INSERT INTO music
+		VALUES(#{id},#{name},#{price},#{singer})
+	</insert>
+
+	<update id="update" parameterType="mDTO"><!-- 아이디 값으로 다른것을 변경할수 있음 -->
+		UPDATE music
+		SET
+		name=#{name},
+		price=#{price},
+		singer=#{singer}
+		WHERE
+		id = #{id}
+	</update>
+
+	<delete id="delete" parameterType="mDTO"><!-- 아이디 값으로 삭제! -->
+		DELETE FROM music WHERE
+		id = #{id}
+	</delete>
+
+</mapper>
